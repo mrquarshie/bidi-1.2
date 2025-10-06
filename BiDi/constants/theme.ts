@@ -1,29 +1,93 @@
 /**
- * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
+ * BiDi Fuel Station App Theme
+ * Dark Green and Light Green Color Scheme with Fuel Station Aesthetic
  */
 
 import { Platform } from 'react-native';
 
-const tintColorLight = '#0a7ea4';
-const tintColorDark = '#fff';
+// Primary brand colors - Green fuel station theme
+const primaryDarkGreen = '#1a5f3f';  // Dark forest green
+const primaryGreen = '#2d7a4f';      // Medium green
+const lightGreen = '#4ade80';        // Light green
+const accentGreen = '#22c55e';       // Bright green
+const darkGreen = '#14532d';         // Very dark green
+
+// Modern tint colors
+const tintColorLight = primaryGreen;
+const tintColorDark = lightGreen;
 
 export const Colors = {
   light: {
-    text: '#11181C',
-    background: '#fff',
+    // Text colors
+    text: '#0f172a',
+    textSecondary: '#374151',
+    textMuted: '#6b7280',
+    
+    // Background colors
+    background: '#f0fdf4',        // Very light green
+    backgroundSecondary: '#dcfce7', // Light green
+    backgroundTertiary: '#bbf7d0',  // Lighter green
+    
+    // Brand colors
+    primary: primaryGreen,
+    primaryDark: primaryDarkGreen,
+    accent: lightGreen,
+    success: accentGreen,
+    
+    // UI colors
     tint: tintColorLight,
-    icon: '#687076',
-    tabIconDefault: '#687076',
+    icon: '#374151',
+    tabIconDefault: '#6b7280',
     tabIconSelected: tintColorLight,
+    
+    // Border and divider colors
+    border: '#bbf7d0',
+    borderLight: '#dcfce7',
+    
+    // Card colors
+    card: '#ffffff',
+    cardBorder: '#bbf7d0',
+    
+    // Status colors
+    error: '#ef4444',
+    warning: '#f59e0b',
+    info: primaryGreen,
   },
   dark: {
-    text: '#ECEDEE',
-    background: '#151718',
+    // Text colors
+    text: '#f0fdf4',
+    textSecondary: '#bbf7d0',
+    textMuted: '#86efac',
+    
+    // Background colors
+    background: darkGreen,         // Very dark green
+    backgroundSecondary: primaryDarkGreen, // Dark green
+    backgroundTertiary: primaryGreen,      // Medium green
+    
+    // Brand colors
+    primary: lightGreen,
+    primaryDark: primaryGreen,
+    accent: accentGreen,
+    success: lightGreen,
+    
+    // UI colors
     tint: tintColorDark,
-    icon: '#9BA1A6',
-    tabIconDefault: '#9BA1A6',
+    icon: '#86efac',
+    tabIconDefault: '#4ade80',
     tabIconSelected: tintColorDark,
+    
+    // Border and divider colors
+    border: primaryGreen,
+    borderLight: '#2d7a4f',
+    
+    // Card colors
+    card: primaryDarkGreen,
+    cardBorder: primaryGreen,
+    
+    // Status colors
+    error: '#f87171',
+    warning: '#fbbf24',
+    info: lightGreen,
   },
 };
 

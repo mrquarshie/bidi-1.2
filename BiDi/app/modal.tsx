@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { StyleSheet, TextInput, Button, Alert, ScrollView, FlatList } from 'react-native';
-import { router } from 'expo-router';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
+import { router } from 'expo-router';
+import React, { useState } from 'react';
+import { Alert, Button, FlatList, ScrollView, StyleSheet, TextInput } from 'react-native';
 
 // Mock Data
 const mockStations = {
-  ST001: { name: 'Goil Station Accra', manager: 'John Doe', contact: '+233 123456' }
+  ST001: { name: 'Goil Station Accra', manager: 'Emmanuel Quarshie', contact: '+233 595785158' }
 };
 
 const mockProducts = {
