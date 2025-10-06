@@ -1,58 +1,80 @@
-import React, { useState } from 'react';
-import { StyleSheet, TextInput, Button, Alert, ScrollView } from 'react-native';
-import { router } from 'expo-router';
+import { Image } from 'expo-image';
+import { Platform, StyleSheet } from 'react-native';
+
+import { HelloWave } from '@/components/hello-wave';
+import ParallaxScrollView from '@/components/parallax-scroll-view';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
+import { Link } from 'expo-router';
 
-export default function LoginScreen() {
-  const [stationCode, setStationCode] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleLogin = () => {
-    if (stationCode === 'ST001' && password === 'admin') {
-      router.push('/dashboard');
-    } else {
-      Alert.alert('Error', 'Invalid station code or credentials.');
-    }
-  };
-
+export default function HomeScreen() {
   return (
-    <ThemedView style={styles.container}>
-      <ThemedText type="title" style={styles.title}>Bidi Fuel - Pump Attendant Login</ThemedText>
-      <TextInput
-        style={styles.input}
-        placeholder="Station Code (e.g., ST001)"
-        value={stationCode}
-        onChangeText={setStationCode}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        value={password}
-        onChangeText={setPassword}
-        secureTextEntry
-      />
-      <Button title="Login" onPress={handleLogin} />
-    </ThemedView>
+    <ParallaxScrollView
+      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
+      headerImage={
+        <Image
+          source={require('@/assets/images/partial-react-logo.png')}
+          style={styles.reactLogo}
+        />
+      }>
+      <ThemedView style={styles.titleContainer}>
+        <ThemedText type="title">Welcome to BiDi Fuel!</ThemedText>
+        <HelloWave />
+      </ThemedView>
+      <ThemedView style={styles.stepContainer}>
+        <ThemedText type="subtitle">Fuel Station Management System</ThemedText>
+        <ThemedText>
+          This is a fuel station management app for pump attendants to manage tokens, sales, and transactions.
+        </ThemedText>
+      </ThemedView>
+      <ThemedView style={styles.stepContainer}>
+        <Link href="/modal">
+          <Link.Trigger>
+            <ThemedText type="subtitle">Step 1: Login</ThemedText>
+          </Link.Trigger>
+          <Link.Preview />
+          <Link.Menu>
+            <Link.MenuAction title="Station Login" icon="person.fill" onPress={() => alert('Login pressed')} />
+            <Link.MenuAction
+              title="Settings"
+              icon="gear"
+              onPress={() => alert('Settings pressed')}
+            />
+          </Link.Menu>
+        </Link>
+
+        <ThemedText>
+          {`Tap the Dashboard tab to access the fuel station management features.`}
+        </ThemedText>
+      </ThemedView>
+      <ThemedView style={styles.stepContainer}>
+        <ThemedText type="subtitle">Features</ThemedText>
+        <ThemedText>
+          • Token validation and fuel dispensing{'\n'}
+          • Manual sales processing{'\n'}
+          • Transaction history and reporting{'\n'}
+          • Real-time SMS notifications
+        </ThemedText>
+      </ThemedView>
+    </ParallaxScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-    justifyContent: 'center',
+  titleContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
   },
-  title: {
-    textAlign: 'center',
-    marginBottom: 30,
+  stepContainer: {
+    gap: 8,
+    marginBottom: 8,
   },
-  input: {
-    borderWidth: 1,
-    borderColor: '#ccc',
-    padding: 15,
-    marginBottom: 15,
-    borderRadius: 8,
-    fontSize: 16,
+  reactLogo: {
+    height: 178,
+    width: 290,
+    bottom: 0,
+    left: 0,
+    position: 'absolute',
   },
 });
