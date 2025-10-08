@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "BiDi",
-    "slug": "BiDi",
+    "name": "bidi",
+    "slug": "bidi",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -33,9 +33,9 @@
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "#2d7a4f",
+          "backgroundColor": "#ffffff",
           "dark": {
-            "backgroundColor": "#14532d"
+            "backgroundColor": "#000000"
           }
         }
       ]
