@@ -1,33 +1,76 @@
 import { Tabs } from 'expo-router';
-import React from 'react';
-
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
+        tabBarActiveTintColor: '#34C759',
+        tabBarInactiveTintColor: '#666',
+        tabBarStyle: {
+          backgroundColor: 'white',
+          borderTopColor: '#E5E5E7',
+        },
+        headerStyle: {
+          backgroundColor: '#34C759',
+        },
+        headerTintColor: 'white',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
       }}>
       <Tabs.Screen
-        name="index"
+        name="dashboard"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: 'Dashboard',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="speedometer" size={size} color={color} />
+          ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="register-omc"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'Register OMC',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="business" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="omc-list"
+        options={{
+          title: 'OMCs',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="list" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="stations"
+        options={{
+          title: 'Stations',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="location" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="attendants"
+        options={{
+          title: 'Attendants',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="people" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="membership"
+        options={{
+          title: 'Membership',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="person" size={size} color={color} />
+          ),
         }}
       />
     </Tabs>
