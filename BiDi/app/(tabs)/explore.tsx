@@ -13,10 +13,11 @@ export default function TabTwoScreen() {
   const accentColor = useThemeColor({}, 'accent');
   const successColor = useThemeColor({}, 'success');
   const warningColor = useThemeColor({}, 'warning');
+  const darkHeaderColor = useThemeColor({}, 'backgroundSecondary');
 
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: primaryColor, dark: darkGreen }}
+      headerBackgroundColor={{ light: primaryColor, dark: darkHeaderColor }}
       headerImage={
         <View style={styles.headerContent}>
           <IconSymbol
