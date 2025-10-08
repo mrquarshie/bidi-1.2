@@ -1,8 +1,9 @@
-import { useState } from 'react';
-import { View, Text, StyleSheet, ScrollView, Alert } from 'react-native';
 import { router } from 'expo-router';
-import Input from '../components/Input';
-import Button from '../components/Button';
+import { useState } from 'react';
+import { Alert, ScrollView, StyleSheet, Text, View } from 'react-native';
+import Input from '../components/input';
+ 
+import Button from '../components/button';
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -31,7 +32,7 @@ export default function Login() {
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
       <View style={styles.header}>
-        <Text style={styles.title}>BIDI</Text>
+        <Text style={styles.title}>BIDI FUEL</Text>
         <Text style={styles.subtitle}>Admin Portal</Text>
       </View>
 
